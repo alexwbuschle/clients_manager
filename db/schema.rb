@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212190706) do
+ActiveRecord::Schema.define(version: 20151212192735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20151212190706) do
   end
 
   add_index "contacts", ["id"], name: "index_contacts_on_id", using: :btree
+
+  create_table "custom_fields", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "field_type", null: false
+    t.datetime "deleted_at"
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "custom_fields", ["id", "user_id"], name: "index_custom_fields_on_id_and_user_id", where: "(deleted_at IS NULL)", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
