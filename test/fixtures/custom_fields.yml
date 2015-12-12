@@ -1,0 +1,4 @@
+home_favorite_color:
+  name: Favorite Color
+  field_type: string
+  user: homer

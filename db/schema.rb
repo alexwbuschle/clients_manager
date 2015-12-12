@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212192735) do
+ActiveRecord::Schema.define(version: 20151212195057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contact_fields", force: :cascade do |t|
+    t.text     "value",           null: false
+    t.integer  "contact_id",      null: false
+    t.integer  "custom_field_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "contact_fields", ["contact_id"], name: "index_contact_fields_on_contact_id", where: "(deleted_at IS NULL)", using: :btree
+  add_index "contact_fields", ["id"], name: "index_contact_fields_on_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name",       null: false
