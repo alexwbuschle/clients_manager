@@ -1,4 +1,4 @@
-home_favorite_color:
-  name: Favorite Color
-  field_type: string
-  user: homer
+moe_favorite_beer:
+  name: Type of beer
+  field_type: text
+  user: moe

@@ -1,0 +1,4 @@
+homers_favorite_beer:
+  value: duff
+  contact: homer_moes_contact
+  custom_field: moe_favorite_beer
