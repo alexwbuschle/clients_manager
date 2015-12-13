@@ -1,4 +1,14 @@
 class ContactField < ActiveRecord::Base
-  validates :contact_id, :custom_field_id, :value, presence: true
-  validates :custom_field_id, uniqueness: { scope: :contact_id }
+  belongs_to :custom_field
+  belongs_to :contact
+
+  validates :custom_field_id, presence: true, uniqueness: { scope: :contact_id }
+
+  default_scope { where(deleted_at: nil) }
+
+  def destroy
+    return super if deleted_at.present?
+    update_attribute(:deleted_at, Time.now)
+    DeletedCleanupJob.perform_later
+  end
 end
