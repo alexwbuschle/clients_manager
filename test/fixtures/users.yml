@@ -1,2 +1,4 @@
 moe:
   email: moe@bar.com
+stranger:
+  email: 'foo@bar.com'

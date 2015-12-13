@@ -8,3 +8,12 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
+  def login_user(current_user = users('moe'))
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = current_user
+    sign_in user
+  end
+end
