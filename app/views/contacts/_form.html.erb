@@ -1,0 +1,25 @@
+<%= form_for(@contact) do |f| %>
+  <%= render partial: 'shared/errors', locals: { object: @contact } %>
+
+
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label col-xs-2' %>
+    <div class="col-xs-10"><%= f.text_field :name, class: 'form-control' %></div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, class: 'control-label col-xs-2' %>
+    <div class="col-xs-10"><%= f.text_field :email, class: 'form-control' %></div>
+  </div>
+
+  <% current_user.custom_fields.each do |custom_field| %>
+    <div class="form-group">
+      <%= label_tag(custom_field.name.downcase, nil, class: 'control-label col-xs-2', for: "customs__#{custom_field.id}") %>
+      <div class="col-xs-10"><%= field(custom_field: custom_field, value: @contact.contact_fields.detect { |cf| cf.custom_field_id == custom_field.id }.try(:value), html_options: { class: 'form-control' }) %></div>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit('Create', class: 'btn btn-primary') %>
+  </div>
+<% end %>

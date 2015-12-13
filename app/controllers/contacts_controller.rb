@@ -21,7 +21,7 @@ class ContactsController < ApplicationController
     @contact.user = current_user
     assemble_customs
 
-    if @contact.save!
+    if @contact.save
       redirect_to @contact, notice: 'Contact was successfully created.'
     else
       render :new

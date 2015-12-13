@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Custom Fields</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @custom_fields.each do |custom_field| %>
+      <tr>
+        <td><%= custom_field.name %></td>
+        <td><%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_custom_field_path(custom_field) %></td>
+        <td><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, custom_field, method: :delete, data: { confirm: 'Are you sure? All contact fields will be deleted too!' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Custom field', new_custom_field_path %>

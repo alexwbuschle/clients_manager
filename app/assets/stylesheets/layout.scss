@@ -1,0 +1,41 @@
+$blue-light: #edf1f5;
+$blue-regular: #2e5caa;
+$blue-hover: #3E7CE5;
+
+$min-width: 1024px;
+
+* {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-smoothing: antialiased;
+  min-width: $min-width;
+  width: 100%;
+  height: auto;
+
+  background-color: $blue-light;
+  font-style: normal;
+  font-weight: 400;
+}
+
+a, a:visited {
+  color: $blue-regular;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $blue-hover;
+  text-decoration: none;
+}
+
+#container {
+  margin: 0 auto;
+  width: 950px;
+  padding: 10px 30px;
+  background-color: white;
+}

@@ -1,0 +1,36 @@
+<%= form_for(@custom_field, class: 'form-horizontal') do |f| %>
+  <% if @custom_field.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <h2><%= pluralize(@custom_field.errors.count, "error") %> prohibited this custom_field from being saved:</h2>
+      <ul>
+        <% @custom_field.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label col-xs-2' %>
+    <div class="col-xs-10"><%= f.text_field :name, class: 'form-control' %></div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :field_type, class: 'control-label col-xs-2' %>
+    <div class="col-xs-10">
+      <%= f.select(:field_type, [['Text', 'text'], ['Text Area', 'text_area'], ['Select', 'select']], prompt: '') %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :value, class: 'control-label col-xs-2' %>
+    <div class="col-xs-10"><%= f.text_field :value, class: 'form-control', placeholder: 'Fill the select options using , as separator' %></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit('Create', class: 'btn btn-primary') %>
+  </div>
+<% end %>
+
+
+

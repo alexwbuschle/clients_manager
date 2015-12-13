@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @custom_field.name %>
+</p>
+
+<p>
+  <strong>Field type:</strong>
+  <%= @custom_field.field_type %>
+</p>
+
+<p>
+  <strong>Delete at:</strong>
+  <%= @custom_field.delete_at %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @custom_field.user %>
+</p>
+
+<p>
+  <strong>Contact field:</strong>
+  <%= @custom_field.contact_field %>
+</p>
+
+<%= link_to 'Edit', edit_custom_field_path(@custom_field) %> |
+<%= link_to 'Back', custom_fields_path %>
