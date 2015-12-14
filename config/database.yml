@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: clients_development
+
+test:
+  <<: *default
+  database: clients_test
+
+production:
+  <<: *default
+  database: clients_production

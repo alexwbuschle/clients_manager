@@ -33,5 +33,4 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
-/config/database.yml
 .byebug_history

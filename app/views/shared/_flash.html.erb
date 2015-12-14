@@ -1,0 +1,5 @@
+<% if flash.any? %>
+  <% { notice: 'alert-success', info: 'alert-info', warning: 'alert-warning' }.each_pair do |key, klass| %>
+    <%= content_tag(:div, flash[key], class: "alert #{klass}") if flash[key] %>
+  <% end %>
+<% end %>

@@ -10,5 +10,12 @@
   <%= @contact.email %>
 </p>
 
+<% current_user.custom_fields.each do |custom_field| %>
+  <p>
+    <strong><%= custom_field.name %>:</strong>
+    <%= @contact.contact_fields.detect { |cf| cf.custom_field_id == custom_field.id }.try(:value) %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>

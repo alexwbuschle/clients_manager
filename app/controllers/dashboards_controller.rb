@@ -1,6 +1,7 @@
 class DashboardsController < ApplicationController
   def index
-    redirect_to dashboards_path if user_signed_in?
+    return redirect_to contacts_path if user_signed_in?
+    redirect_to '/users/sign_in'
   end
 
   def show

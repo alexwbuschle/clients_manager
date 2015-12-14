@@ -24,7 +24,7 @@ body {
 }
 
 a, a:visited {
-  color: $blue-regular;
+  color: black;
   text-decoration: none;
 }
 
@@ -38,4 +38,8 @@ a:hover {
   width: 950px;
   padding: 10px 30px;
   background-color: white;
+}
+
+.navbar-default {
+  margin-bottom: 10px;
 }
